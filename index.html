@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DriveVault premium automotive marketplace">
+<title>DriveVault — Premium Automotive Marketplace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<header class="topbar">
+  <a class="brand" href="#home"><span>DV</span> DRIVEVAULT</a>
+  <nav><a href="#inventory">Cars</a><a href="#sell">Sell</a><a href="#compare">Compare <b id="compareCount">0</b></a><a href="#about">About</a></nav>
+  <div class="headActions"><button id="themeBtn" class="iconBtn">☾</button><button id="authBtn" class="outlineBtn">Login</button></div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="heroCopy">
+    <p class="eyebrow">VERIFIED AUTOMOTIVE MARKETPLACE</p>
+    <h1>Find the car<br><em>worth driving.</em></h1>
+    <p>Search real listings, compare specifications, save favorites, contact sellers and list your own vehicle.</p>
+    <a class="primaryBtn" href="#inventory">Browse cars →</a>
+  </div>
+  <div class="heroVisual">
+    <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=85" alt="Premium sports car">
+    <div class="heroBadge"><strong id="heroCount">0</strong><span>verified listings</span></div>
+  </div>
+</section>
+
+<section id="inventory" class="section">
+  <div class="sectionHead"><div><p class="eyebrow">THE GARAGE</p><h2>Featured inventory</h2></div><span id="resultCount"></span></div>
+  <div class="filters">
+    <input id="search" placeholder="Search make, model, year or location">
+    <select id="make"><option value="">All makes</option></select>
+    <select id="fuel"><option value="">Fuel</option><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select>
+    <select id="trans"><option value="">Transmission</option><option>Automatic</option><option>Manual</option></select>
+    <input id="maxPrice" type="number" min="0" placeholder="Max price">
+    <select id="sort"><option value="featured">Featured</option><option value="priceAsc">Price: low → high</option><option value="priceDesc">Price: high → low</option><option value="yearDesc">Newest first</option></select>
+  </div>
+  <div id="cars" class="grid"></div>
+</section>
+
+<section id="compare" class="section alt"><div class="sectionHead"><div><p class="eyebrow">SIDE BY SIDE</p><h2>Compare</h2></div></div><div id="compareBox" class="compareBox">Choose up to 3 vehicles.</div></section>
+
+<section id="sell" class="section sellSection">
+  <div><p class="eyebrow">SELL YOUR CAR</p><h2>Turn your car into a listing.</h2><p>Create a listing with photos, specifications, price and contact details.</p></div>
+  <button id="sellBtn" class="primaryBtn">Create listing</button>
+</section>
+
+<section id="about" class="section about"><p class="eyebrow">DRIVEVAULT</p><h2>A marketplace built around the car.</h2>
+<div class="stats"><div><b>✓</b><span>Verified listing data</span></div><div><b>24/7</b><span>Digital showroom</span></div><div><b>3</b><span>Vehicle comparison</span></div><div><b>∞</b><span>Saved favorites</span></div></div></section>
+</main>
+
+<footer>© 2026 DriveVault · Automotive marketplace · <button id="adminBtn" class="linkBtn">Admin</button></footer>
+
+<div id="modal" class="modal hidden"><div class="modalCard"><button id="closeModal" class="close">×</button><div id="modalBody"></div></div></div>
+<div id="authModal" class="modal hidden"><div class="modalCard"><button class="close" data-close="authModal">×</button><div id="authBody"></div></div></div>
+<div id="sellModal" class="modal hidden"><div class="modalCard"><button class="close" data-close="sellModal">×</button>
+<h2>List your car</h2><form id="sellForm" class="formGrid">
+<input name="make" required placeholder="Make"><input name="model" required placeholder="Model"><input name="year" required type="number" placeholder="Year"><input name="price" required type="number" placeholder="Price">
+<input name="mileage" required type="number" placeholder="Mileage (km)"><input name="location" required placeholder="Location"><select name="fuel" required><option value="">Fuel</option><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select><select name="trans" required><option value="">Transmission</option><option>Automatic</option><option>Manual</option></select>
+<input name="image" class="full" placeholder="Car image URL (optional)"><textarea name="description" class="full" placeholder="Description"></textarea><button class="primaryBtn full" type="submit">Publish listing</button>
+</form></div></div>
+
+<div id="adminModal" class="modal hidden"><div class="modalCard"><button class="close" data-close="adminModal">×</button><div id="adminBody"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>
